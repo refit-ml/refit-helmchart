@@ -1,0 +1,42 @@
+cassandra: 
+  cluster:
+    replicaCount: 3
+    seedCount: 3
+  persistence:
+    enabled: false
+  dbUser:
+    user: cassandra
+    password: cassandra
+  resources:
+    limits:
+      memory: "1000Mi"
+    requests:
+      memory: "500Mi"
+
+grafana: 
+  persistence:
+    enabled: false
+  plugins:
+    - simpod-json-datasource
+
+flink: 
+  flinkVersion: 1.10.1
+  scalaVersion: 2.11
+  jobManager: 
+    limits: 
+      memory: "1000Mi"
+    requests: 
+      memory: "500Mi"
+  taskManager: 
+    replicas: 1
+    limits: 
+      memory: "1000Mi"
+    requests: 
+      memory: "500Mi"
+pulsar:
+  pulsarVersion: 2.6.0
+  resources: 
+    limits: 
+      memory: "1000Mi"
+    requests: 
+      memory: "500Mi"

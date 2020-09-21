@@ -1,0 +1,117 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-integrations
+  labels:
+    meta.helm.sh/release-name: "{{ .Release.Name }}"
+    meta.helm.sh/release-namespace: "{{ .Release.Namespace }}"
+  annotations:
+    meta.helm.sh/release-name: "{{ .Release.Name }}"
+    meta.helm.sh/release-namespace: "{{ .Release.Namespace }}"
+spec:
+  replicas: {{ .Values.refit.integrations.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+      component: integrations
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+        component: integrations
+      annotations:
+        rollme: {{ randAlphaNum 5 | quote }}
+    spec:
+      containers:
+        - name: {{ .Release.Name }}-integrations
+          image: cdliotprototype/cdl-refit-integrations:{{ .Values.refit.version }}
+          env:
+            - name: REFIT_PROJECT
+              value: integrations
+            - name: WAIT_PULSAR_HOST
+              value: {{ .Release.Name }}-pulsar-standalone
+            - name: WAIT_CASSANDRA_HOST
+              value: {{ .Release.Name }}-cassandra
+            - name: PULSAR_HOST
+              value: pulsar://{{ .Release.Name }}-pulsar-standalone:6650
+            - name: CASSANDRA_HOST
+              value: {{ .Release.Name }}-cassandra
+            - name: CASSANDRA_PORT
+              value: "9042"
+            - name: CASSANDRA_KEYSPACE
+              value: cdl_refit
+            - name: CASSANDRA_USERNAME
+              value: cassandra
+            - name: CASSANDRA_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: cassandra-password
+                  name: refit-cassandra-credentials
+            - name: PULSAR_DATA_TOPIC
+              value: persistent://sample/standalone/ns1/data
+            - name: PULSAR_MODELS_TOPIC
+              value: persistent://sample/standalone/ns1/models
+            - name: PULSAR_PREDICTIONS_TOPIC
+              value: persistent://sample/standalone/ns1/predictions              
+            - name: PULSAR_IMPORT_TOPIC
+              value: persistent://sample/standalone/ns1/import
+            - name: PULSAR_MODEL_PUBLISH_TOPIC
+              value: persistent://sample/standalone/ns1/publish-models
+            - name: MINIO_HOST
+              value: http://{{ .Release.Name }}-minio:9000
+            - name: MINIO_BUCKET_IMPORT
+              value: refit-import
+            - name: MINIO_BUCKET_MODELS
+              value: refit-models
+            - name: MINIO_BUCKET_SCHEMA
+              value: refit-schema
+            - name: MINIO_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  key: accesskey
+                  name: {{ .Release.Name }}-minio
+            - name: MINIO_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  key: secretkey
+                  name: {{ .Release.Name }}-minio
+            - name: ENCRYPTION_KEY
+              valueFrom:
+                secretKeyRef:
+                  key: password
+                  name: {{ .Release.Name }}-encryption-key
+            {{- if eq .Values.refit.schemaConfigMap "__demo__" }}
+            - name: REFIT_DEMO
+              value: "true"
+            {{- end }}
+          resources:
+            limits:
+              memory: {{ .Values.refit.integrations.resources.limits.memory }}
+            requests:
+              memory: {{ .Values.refit.integrations.resources.requests.memory }}
+          ports:
+            - containerPort: 3000
+              name: api
+      {{- with .Values.refit.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-integrations
+  labels:
+    meta.helm.sh/release-name: "{{ .Release.Name }}"
+    meta.helm.sh/release-namespace: "{{ .Release.Namespace }}"
+  annotations:
+    meta.helm.sh/release-name: "{{ .Release.Name }}"
+    meta.helm.sh/release-namespace: "{{ .Release.Namespace }}"
+spec:
+  type: ClusterIP
+  ports:
+    - name: api
+      port: 3000
+  selector:
+    app: {{ .Release.Name }}
+    component: integrations

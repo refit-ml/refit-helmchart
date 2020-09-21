@@ -1,0 +1,26 @@
+apiVersion: v2
+name: refit
+version: 0.0.0
+description: The complete REFIT System developed by the CDL at Northwestern University
+type: application
+keywords:
+  - Artificial Intelligence
+  - Deep Learning
+  - Neural Network
+home: https://github.com/C0deKing/iot-prototype
+sources:
+  - https://github.com/C0deKing/iot-prototype
+dependencies:
+  - name: cassandra
+    version: 5.6.1
+    repository: "@bitnami"
+    alias: cassandra
+  - name: minio
+    version: 6.3.1
+    repository: "@minio"
+    alias: minio
+  - name: grafana
+    version: 5.5.5
+    repository: "@stable"
+    alias: grafana
+
