@@ -78,7 +78,7 @@ pulsar:
       memory: "3000Mi"
 
 refit: 
-  version: BETA-0.9
+  version: BETA-0.10
   encryptionKey: __generated__
   cassandraPassword: __generated__
   nodeSelector:
