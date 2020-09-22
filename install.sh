@@ -3,6 +3,7 @@ set -e
 
 ACTION="$1"
 
+helm repo add jupyterhub https://jupyterhub.github.io/helm-chart/
 helm repo add minio https://helm.min.io/
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm repo add apache https://pulsar.apache.org/charts
@@ -28,3 +29,5 @@ cd ../
 
 helm $ACTION refit ./refit -f envs/local/values.yaml
 
+# To install on tiger 
+# helm install refit ./refit --namespace iot-prototype -f envs/tiger/values.yaml

@@ -26,7 +26,7 @@ spec:
         - name: {{ .Release.Name }}-integrations
           image: cdliotprototype/cdl-refit-integrations:{{ .Values.refit.version }}
           env:
-            - name: REFIT_PROJECT
+            - name: PROJECT
               value: integrations
             - name: WAIT_PULSAR_HOST
               value: {{ .Release.Name }}-pulsar-standalone
@@ -40,7 +40,7 @@ spec:
               value: "9042"
             - name: CASSANDRA_KEYSPACE
               value: cdl_refit
-            - name: CASSANDRA_USERNAME
+            - name: CASSANDRA_USER
               value: cassandra
             - name: CASSANDRA_PASSWORD
               valueFrom:

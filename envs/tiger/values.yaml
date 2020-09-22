@@ -1,3 +1,6 @@
+minio:
+  nodeSelector:
+    coredns: enabled
 cassandra: 
   cluster:
     replicaCount: 6
@@ -9,30 +12,6 @@ cassandra:
     coredns: enabled
   dbUser:
     user: cassandra
-  resources:
-    limits:
-      memory: "10000Mi"
-    requests:
-      memory: "5000Mi"
-redis: 
-  usePassword: true
-  password: redis
-  master: 
-    nodeSelector: 
-      coredns: enabled
-    persistence:
-      enabled: false
-      # storageClass: glusterfs
-  slave: 
-    nodeSelector: 
-      coredns: enabled
-    persistence:
-      enabled: false
-      # storageClass: glusterfs
-  cluster: 
-    slaveCount: 2
-  metrics:
-    enabled: false
   resources:
     limits:
       memory: "10000Mi"
@@ -79,8 +58,10 @@ pulsar:
       memory: "5000Mi"
 
 refit:
-  version: BETA-0.9
+  version: BETA-0.13
   nodeSelector:
     coredns: enabled
   integrations:
-    replicas: 8
+    replicas: 3
+  ingestion: 
+    replicas: 3

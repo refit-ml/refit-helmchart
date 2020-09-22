@@ -23,4 +23,8 @@ dependencies:
     version: 5.5.5
     repository: "@stable"
     alias: grafana
+  # - name: jupyterhub
+  #   version: 0.9.1
+  #   repository: "@jupyterhub"
+  #   alias: jupyterhub
 

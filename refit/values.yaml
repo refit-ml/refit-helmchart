@@ -1,11 +1,14 @@
-  
+minio: 
+  persistence: 
+    enabled: false
+
 cassandra:
   image:
     repository: cdliotprototype/cdl-refit-cassandra
-    tag: BETA-0.9
+    tag: BETA-0.13
   cluster:
-    replicaCount: 4
-    seedCount: 4
+    replicaCount: 1
+    seedCount: 1
   persistence:
     enabled: false
   resources:
@@ -78,12 +81,19 @@ pulsar:
       memory: "3000Mi"
 
 refit: 
-  version: BETA-0.10
+  version: BETA-0.13
   encryptionKey: __generated__
   cassandraPassword: __generated__
   nodeSelector:
     coredns: enabled
   integrations:
+    replicas: 1
+    resources:
+      limits:
+        memory: "2000Mi"
+      requests:
+        memory: "500Mi"
+  notebook:
     replicas: 1
     resources:
       limits:
