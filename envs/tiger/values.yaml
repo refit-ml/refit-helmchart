@@ -62,6 +62,6 @@ refit:
   nodeSelector:
     coredns: enabled
   integrations:
-    replicas: 3
+    replicas: 8
   ingestion: 
     replicas: 3
