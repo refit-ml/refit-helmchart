@@ -5,8 +5,8 @@ To access various services on your localhost, use these commands
 kubectl port-forward service/refit-cassandra 9042:9042 9160:9160 
 kubectl port-forward service/refit-flink-jobmanager 8081:8081 
 kubectl port-forward service/refit-pulsar-standalone 6650:6650 
-kubectl port-forward service/jenkins 8000:80
 kubectl port-forward service/refit-grafana 8000:80
+kubectl port-forward service/refit-notebook 8888:8888
 
 To access various secrets, use these commands
 

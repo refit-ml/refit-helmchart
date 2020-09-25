@@ -5,7 +5,7 @@ minio:
 cassandra:
   image:
     repository: cdliotprototype/cdl-refit-cassandra
-    tag: BETA-0.13
+    tag: BETA-0.14
   cluster:
     replicaCount: 1
     seedCount: 1
@@ -81,7 +81,7 @@ pulsar:
       memory: "3000Mi"
 
 refit: 
-  version: BETA-0.13
+  version: BETA-0.14
   encryptionKey: __generated__
   cassandraPassword: __generated__
   nodeSelector:

@@ -31,3 +31,4 @@ helm $ACTION refit ./refit -f envs/local/values.yaml
 
 # To install on tiger 
 # helm install refit ./refit --namespace iot-prototype -f envs/tiger/values.yaml
+# helm upgrade refit ./refit --namespace iot-prototype -f envs/tiger/values.yaml
