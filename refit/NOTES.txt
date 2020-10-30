@@ -15,3 +15,10 @@ kubectl get secret refit-cassandra-credentials -o jsonpath="{.data.cassandra-pas
 kubectl get secret refit-encryption-key -o jsonpath="{.data.password}" | base64 --decode ; echo
 kubectl get secret refit-minio -o jsonpath="{.data.accesskey}" | base64 --decode ; echo
 kubectl get secret refit-minio -o jsonpath="{.data.secretkey}" | base64 --decode ; echo
+
+
+To start a local minikube cluster to get this running, follow these instructions
+ 
+ 
+minikube start --cpus 8 --memory 15000 
+k label node minikube coredns=enabled

@@ -9,6 +9,17 @@ cassandra:
     password: cassandra
   resources:
     limits:
+      memory: "1400Mi"
+    requests:
+      memory: "700Mi"
+
+kafka: 
+  replicaCount: 2
+  autoCreateTopicsEnable: true
+  persistence:
+    enabled: false
+  resources:
+    limits:
       memory: "1000Mi"
     requests:
       memory: "500Mi"
@@ -29,13 +40,6 @@ flink:
       memory: "500Mi"
   taskManager: 
     replicas: 1
-    limits: 
-      memory: "1000Mi"
-    requests: 
-      memory: "500Mi"
-pulsar:
-  pulsarVersion: 2.6.0
-  resources: 
     limits: 
       memory: "1000Mi"
     requests: 

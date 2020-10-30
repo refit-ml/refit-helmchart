@@ -26,14 +26,11 @@ spec:
         - name: {{ .Release.Name }}-ingestion
           image: cdliotprototype/cdl-refit-ingestion:{{ .Values.refit.version }}
           env:
+          env:
             - name: PROJECT
               value: ingestion
-            - name: WAIT_PULSAR_HOST
-              value: {{ .Release.Name }}-pulsar-standalone
             - name: WAIT_CASSANDRA_HOST
               value: {{ .Release.Name }}-cassandra
-            - name: PULSAR_HOST
-              value: pulsar://{{ .Release.Name }}-pulsar-standalone:6650
             - name: CASSANDRA_HOST
               value: {{ .Release.Name }}-cassandra
             - name: CASSANDRA_PORT
@@ -47,16 +44,16 @@ spec:
                 secretKeyRef:
                   key: cassandra-password
                   name: refit-cassandra-credentials
-            - name: PULSAR_DATA_TOPIC
-              value: persistent://sample/standalone/ns1/data
-            - name: PULSAR_MODELS_TOPIC
-              value: persistent://sample/standalone/ns1/models
-            - name: PULSAR_PREDICTIONS_TOPIC
-              value: persistent://sample/standalone/ns1/predictions              
-            - name: PULSAR_IMPORT_TOPIC
-              value: persistent://sample/standalone/ns1/import
-            - name: PULSAR_MODEL_PUBLISH_TOPIC
-              value: persistent://sample/standalone/ns1/publish-models
+            - name: KAFKA_HOST
+              value: refit-kafka:9092
+            - name: KAFKA_DATA_TOPIC
+              value: refit.inference.data
+            - name: KAFKA_MODELS_TOPIC 
+              value: refit.training.models
+            - name: KAFKA_PREDICTIONS_TOPIC 
+              value: refit.inference.predictions
+            - name: KAFKA_IMPORT_TOPIC 
+              value: refit.training.import
             - name: MINIO_HOST
               value: http://{{ .Release.Name }}-minio:9000
             - name: MINIO_BUCKET_IMPORT

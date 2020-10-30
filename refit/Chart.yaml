@@ -12,7 +12,7 @@ sources:
   - https://github.com/C0deKing/iot-prototype
 dependencies:
   - name: cassandra
-    version: 5.6.1
+    version: 4.1.6
     repository: "@bitnami"
     alias: cassandra
   - name: minio
@@ -23,6 +23,10 @@ dependencies:
     version: 5.5.5
     repository: "@stable"
     alias: grafana
+  - name: kafka
+    version: 11.8.8
+    repository: "@bitnami"
+    alias: kafka
   # - name: jupyterhub
   #   version: 0.9.1
   #   repository: "@jupyterhub"

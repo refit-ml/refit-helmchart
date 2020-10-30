@@ -1,12 +1,15 @@
 dependencies:
 - name: cassandra
   repository: https://charts.bitnami.com/bitnami
-  version: 5.6.1
+  version: 4.1.6
 - name: minio
   repository: https://helm.min.io/
   version: 6.3.1
 - name: grafana
   repository: https://kubernetes-charts.storage.googleapis.com
   version: 5.5.5
-digest: sha256:2599e51253a0c2f048aa6b28673423b7e095040a32fadc3144b77e8282d92ef1
-generated: "2020-09-21T22:26:51.628554-05:00"
+- name: kafka
+  repository: https://charts.bitnami.com/bitnami
+  version: 11.8.8
+digest: sha256:f9c02a51230f96037b3ba2400ec535e17ae5e6e8360fe240370ffccab4781a42
+generated: "2020-10-30T15:11:58.111853-05:00"

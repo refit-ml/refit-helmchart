@@ -5,7 +5,7 @@ minio:
 cassandra:
   image:
     repository: cdliotprototype/cdl-refit-cassandra
-    tag: BETA-0.14
+    tag: BETA-0.23
   cluster:
     replicaCount: 1
     seedCount: 1
@@ -18,6 +18,9 @@ cassandra:
       memory: "3000Mi"
   dbUser:
     existingSecret: refit-cassandra-credentials
+  jvm:
+    maxHeapSize: 1024m
+    newHeapSize: 800m
 
   cluster: 
     slaveCount: 2
@@ -31,8 +34,6 @@ cassandra:
       memory: "3000Mi"
 
 grafana: 
-  nodeSelector:
-    coredns: enabled
   persistence:
     enabled: false
   env:
@@ -57,8 +58,6 @@ grafana:
 flink: 
   flinkVersion: 1.10.1
   scalaVersion: 2.11
-  nodeSelector:
-    coredns: enabled
   jobManager: 
     limits: 
       memory: "5000Mi"
@@ -70,22 +69,21 @@ flink:
       memory: "5000Mi"
     requests: 
       memory: "2000Mi"
-pulsar:
-  pulsarVersion: 2.6.0
-  nodeSelector:
-    coredns: enabled
-  resources: 
-    limits: 
+kafka: 
+  replicaCount: 3
+  autoCreateTopicsEnable: true
+  persistence:
+    enabled: false
+  resources:
+    limits:
       memory: "10000Mi"
-    requests: 
+    requests:
       memory: "3000Mi"
 
 refit: 
-  version: BETA-0.14
+  version: BETA-0.23
   encryptionKey: __generated__
   cassandraPassword: __generated__
-  nodeSelector:
-    coredns: enabled
   integrations:
     replicas: 1
     resources:

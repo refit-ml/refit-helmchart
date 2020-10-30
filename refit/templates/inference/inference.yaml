@@ -25,8 +25,8 @@ spec:
           env:
             - name: REFIT_PROJECT
               value: inference
-            - name: WAIT_PULSAR_HOST
-              value: {{ .Release.Name }}-pulsar-standalone
+            - name: KAFKA_HOST
+              value: refit-kafka:9092
             - name: FLINK_HOST
               value: {{ .Release.Name }}-flink-jobmanager
             - name: WAIT_FLINK_HOST

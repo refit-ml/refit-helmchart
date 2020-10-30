@@ -18,6 +18,7 @@ data:
     taskmanager.rpc.port: 6122
     jobmanager.heap.size: 1024m
     taskmanager.memory.process.size: 4000m
+    classloader.resolve-order: parent-first
   log4j.properties: |+
     log4j.rootLogger=INFO, file
     log4j.logger.akka=INFO
