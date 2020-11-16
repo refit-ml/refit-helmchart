@@ -1,0 +1,55 @@
+minio:
+
+kafka: 
+  replicaCount: 2
+  autoCreateTopicsEnable: true
+  resources:
+    limits:
+      memory: "1000Mi"
+    requests:
+      memory: "500Mi"
+  zookeeper:
+
+cassandra: 
+  replicaCount: 4
+  cluster:
+    seedCount: 4
+  dbUser:
+    user: cassandra
+  resources:
+    limits:
+      memory: "2000Mi"
+    requests:
+      memory: "500Mi"
+  
+
+grafana: 
+  plugins:
+    - simpod-json-datasource
+  resources:
+    limits:
+      memory: "1000Mi"
+    requests:
+      memory: "500Mi"
+
+flink: 
+  flinkVersion: 1.10.1
+  scalaVersion: 2.11
+  jobManager: 
+    limits: 
+      memory: "1000Mi"
+    requests: 
+      memory: "500Mi"
+  taskManager: 
+    replicas: 2
+    limits: 
+      memory: "1000Mi"
+    requests: 
+      memory: "500Mi"
+
+refit:
+  version: BETA-0.26
+  integrations:
+    replicas: 1
+  ingestion: 
+    replicas: 1

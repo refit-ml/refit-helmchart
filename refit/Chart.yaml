@@ -12,7 +12,7 @@ sources:
   - https://github.com/C0deKing/iot-prototype
 dependencies:
   - name: cassandra
-    version: 4.1.6
+    version: 7.0.0
     repository: "@bitnami"
     alias: cassandra
   - name: minio

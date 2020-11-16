@@ -1,16 +1,16 @@
 minio: 
   persistence: 
-    enabled: false
+    enabled: true
 
 cassandra:
   image:
     repository: cdliotprototype/cdl-refit-cassandra
-    tag: BETA-0.23
+    tag: BETA-0.26
   cluster:
     replicaCount: 1
     seedCount: 1
   persistence:
-    enabled: false
+    enabled: true
   resources:
     limits:
       memory: "10000Mi"
@@ -35,7 +35,7 @@ cassandra:
 
 grafana: 
   persistence:
-    enabled: false
+    enabled: true
   env:
     GF_INSTALL_PLUGINS: grafana-clock-panel,grafana-simple-json-datasource,simpod-json-datasource
   plugins:
@@ -73,7 +73,7 @@ kafka:
   replicaCount: 3
   autoCreateTopicsEnable: true
   persistence:
-    enabled: false
+    enabled: true
   resources:
     limits:
       memory: "10000Mi"
@@ -81,7 +81,7 @@ kafka:
       memory: "3000Mi"
 
 refit: 
-  version: BETA-0.23
+  version: BETA-0.26
   encryptionKey: __generated__
   cassandraPassword: __generated__
   integrations:

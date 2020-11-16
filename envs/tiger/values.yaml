@@ -1,15 +1,33 @@
 minio:
   nodeSelector:
-    coredns: enabled
+    refit: enabled
+
+kafka: 
+  replicaCount: 2
+  autoCreateTopicsEnable: true
+  nodeSelector:
+    refit: enabled
+  persistence:
+    enabled: false
+  resources:
+    limits:
+      memory: "1000Mi"
+    requests:
+      memory: "500Mi"
+  zookeeper:
+    persistence:
+      enabled: false
+    nodeSelector:
+      refit: enabled
+
 cassandra: 
+  replicaCount: 6
   cluster:
-    replicaCount: 6
     seedCount: 6
   persistence:
     enabled: false
-    # storageClass: glusterfs
   nodeSelector: 
-    coredns: enabled
+    refit: enabled
   dbUser:
     user: cassandra
   resources:
@@ -17,10 +35,9 @@ cassandra:
       memory: "10000Mi"
     requests:
       memory: "5000Mi"
+  
 
 grafana: 
-  nodeSelector:
-    coredns: enabled
   persistence:
     enabled: false
   plugins:
@@ -30,38 +47,31 @@ grafana:
       memory: "10000Mi"
     requests:
       memory: "5000Mi"
+  nodeSelector:
+    refit: enabled
 
 flink: 
   flinkVersion: 1.10.1
   scalaVersion: 2.11
   nodeSelector:
-    coredns: enabled
+    refit: enabled
   jobManager: 
     limits: 
       memory: "10000Mi"
     requests: 
       memory: "5000Mi"
   taskManager: 
-    replicas: 3
-    limits: 
-      memory: "10000Mi"
-    requests: 
-      memory: "5000Mi"
-pulsar:
-  pulsarVersion: 2.6.0
-  nodeSelector:
-    coredns: enabled
-  resources: 
+    replicas: 2
     limits: 
       memory: "10000Mi"
     requests: 
       memory: "5000Mi"
 
 refit:
-  version: BETA-0.17
+  version: BETA-0.26
   nodeSelector:
-    coredns: enabled
+    refit: enabled
   integrations:
-    replicas: 8
+    replicas: 1
   ingestion: 
-    replicas: 3
+    replicas: 1

@@ -53,6 +53,10 @@ spec:
               value: refit.inference.predictions
             - name: KAFKA_IMPORT_TOPIC 
               value: refit.training.import
+            - name: KAFKA_RAW_SENSOR_DATA_TOPIC 
+              value: refit.inference.raw.data
+            - name: KAFKA_SENSOR_DATA_TOPIC 
+              value: refit.inference.sensor.data
             - name: MINIO_HOST
               value: http://{{ .Release.Name }}-minio:9000
             - name: MINIO_BUCKET_IMPORT

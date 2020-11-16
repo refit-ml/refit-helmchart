@@ -1,7 +1,7 @@
 dependencies:
 - name: cassandra
   repository: https://charts.bitnami.com/bitnami
-  version: 4.1.6
+  version: 7.0.0
 - name: minio
   repository: https://helm.min.io/
   version: 6.3.1
@@ -11,5 +11,5 @@ dependencies:
 - name: kafka
   repository: https://charts.bitnami.com/bitnami
   version: 11.8.8
-digest: sha256:f9c02a51230f96037b3ba2400ec535e17ae5e6e8360fe240370ffccab4781a42
-generated: "2020-10-30T15:11:58.111853-05:00"
+digest: sha256:79478bfb10354daaf37ba6009aa310394cc55c50bd9325663d448c571d6bc6f5
+generated: "2020-11-11T09:33:43.513872-06:00"
