@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: {{ .Release.Name }}-notebook
   labels:
@@ -9,7 +9,8 @@ metadata:
     meta.helm.sh/release-name: "{{ .Release.Name }}"
     meta.helm.sh/release-namespace: "{{ .Release.Namespace }}"
 spec:
-  replicas: {{ .Values.refit.notebook.replicas }}
+  replicas: 1
+  serviceName: {{ .Release.Name }}-notebook
   selector:
     matchLabels:
       app: {{ .Release.Name }}
@@ -26,6 +27,10 @@ spec:
         - name: {{ .Release.Name }}-notebook
           image: cdliotprototype/cdl-refit-notebook:{{ .Values.refit.version }}
           env:
+            - name: FLINK_HOST
+              value: {{ .Release.Name }}-flink-jobmanager
+            - name: WAIT_FLINK_HOST
+              value: {{ .Release.Name }}-flink-jobmanager
             - name: JUPYTER_ENABLE_LAB 
               value: "yes"
             - name: REFIT_PROJECT
@@ -96,10 +101,22 @@ spec:
           ports:
             - containerPort: 8888
               name: api
+          # volumeMounts:
+          #   - name: {{ .Release.Name }}-notebook
+          #     mountPath: /home/docker_worker
       {{- with .Values.refit.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+  # volumeClaimTemplates:
+  # - metadata:
+  #     name: {{ .Release.Name }}-notebook
+  #   spec:
+  #     accessModes: [ "ReadWriteOnce" ]
+  #     storageClassName: "standard"
+  #     resources:
+  #       requests:
+  #         storage: 10Gi
 ---
 apiVersion: v1
 kind: Service

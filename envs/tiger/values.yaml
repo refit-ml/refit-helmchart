@@ -1,6 +1,6 @@
-minio:
-  nodeSelector:
-    refit: enabled
+minio: 
+  persistence: 
+    enabled: false
 
 kafka: 
   replicaCount: 2
@@ -68,10 +68,17 @@ flink:
       memory: "5000Mi"
 
 refit:
-  version: BETA-0.26
+  version: BETA-0.39
   nodeSelector:
     refit: enabled
   integrations:
     replicas: 1
   ingestion: 
     replicas: 1
+  notebook:
+    replicas: 1
+    resources:
+      limits:
+        memory: "4000Mi"
+      requests:
+        memory: "2000Mi"

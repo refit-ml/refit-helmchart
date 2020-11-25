@@ -1,11 +1,14 @@
 minio: 
   persistence: 
     enabled: true
+  resources: 
+    requests: 
+      memory: "1000Mi"
 
 cassandra:
   image:
     repository: cdliotprototype/cdl-refit-cassandra
-    tag: BETA-0.26
+    tag: BETA-0.28
   cluster:
     replicaCount: 1
     seedCount: 1
@@ -81,7 +84,7 @@ kafka:
       memory: "3000Mi"
 
 refit: 
-  version: BETA-0.26
+  version: BETA-0.28
   encryptionKey: __generated__
   cassandraPassword: __generated__
   integrations:
@@ -95,9 +98,9 @@ refit:
     replicas: 1
     resources:
       limits:
-        memory: "2000Mi"
+        memory: "3000Mi"
       requests:
-        memory: "500Mi"
+        memory: "1000Mi"
   ingestion:
     replicas: 1
     resources:
