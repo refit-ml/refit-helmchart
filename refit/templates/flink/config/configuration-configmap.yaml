@@ -17,7 +17,9 @@ data:
     jobmanager.rpc.port: 6123
     taskmanager.rpc.port: 6122
     jobmanager.heap.size: 1024m
-    taskmanager.memory.process.size: 4000m
+    taskmanager.memory.process.size: 10240m
+    jobmanager.heap.size: 5120m
+    taskmanager.memory.jvm-overhead.fraction: 0.8
     classloader.resolve-order: parent-first
   log4j.properties: |+
     log4j.rootLogger=INFO, file
