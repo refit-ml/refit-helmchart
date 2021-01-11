@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}-ingestion-demo
+  name: {{ .Release.Name }}-demo
   labels:
     meta.helm.sh/release-name: "{{ .Release.Name }}"
     meta.helm.sh/release-namespace: "{{ .Release.Namespace }}"
@@ -14,21 +14,21 @@ spec:
   selector:
     matchLabels:
       app: {{ .Release.Name }}
-      component: ingestion-demo
+      component: demo
   template:
     metadata:
       labels:
         app: {{ .Release.Name }}
-        component: ingestion-demo
+        component: demo
       annotations:
         rollme: {{ randAlphaNum 5 | quote }}
     spec:
       containers:
-        - name: {{ .Release.Name }}-ingestion
-          image: cdliotprototype/cdl-refit-ingestion:{{ .Values.refit.version }}
+        - name: {{ .Release.Name }}-demo
+          image: cdliotprototype/cdl-refit-demo:{{ .Values.refit.version }}
           env:
             - name: PROJECT
-              value: ingestion-demo
+              value: demo
             - name: WAIT_CASSANDRA_HOST
               value: {{ .Release.Name }}-cassandra
             - name: CASSANDRA_HOST

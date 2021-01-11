@@ -68,7 +68,7 @@ flink:
       memory: "6000Mi"
 
 refit:
-  version: BETA-0.50
+  version: BETA-0.54
   nodeSelector:
     refit: enabled
   integrations:

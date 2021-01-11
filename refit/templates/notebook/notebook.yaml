@@ -35,37 +35,10 @@ spec:
               value: "yes"
             - name: REFIT_PROJECT
               value: notebook
-            - name: WAIT_PULSAR_HOST
-              value: {{ .Release.Name }}-pulsar-standalone
-            - name: WAIT_CASSANDRA_HOST
-              value: {{ .Release.Name }}-cassandra
-            - name: PULSAR_HOST
-              value: pulsar://{{ .Release.Name }}-pulsar-standalone:6650
-            - name: CASSANDRA_HOST
-              value: {{ .Release.Name }}-cassandra
-            - name: CASSANDRA_PORT
-              value: "9042"
-            - name: CASSANDRA_KEYSPACE
-              value: cdl_refit
-            - name: CASSANDRA_USER
-              value: cassandra
-            - name: CASSANDRA_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  key: cassandra-password
-                  name: refit-cassandra-credentials
             - name: INGESTION_HOST
               value: {{ .Release.Name }}-ingestion
-            - name: PULSAR_DATA_TOPIC
-              value: persistent://sample/standalone/ns1/data
-            - name: PULSAR_MODELS_TOPIC
-              value: persistent://sample/standalone/ns1/models
-            - name: PULSAR_PREDICTIONS_TOPIC
-              value: persistent://sample/standalone/ns1/predictions              
-            - name: PULSAR_IMPORT_TOPIC
-              value: persistent://sample/standalone/ns1/import
-            - name: PULSAR_MODEL_PUBLISH_TOPIC
-              value: persistent://sample/standalone/ns1/publish-models
+            - name: INTEGRATIONS_HOST
+              value: {{ .Release.Name }}-integrations
             - name: MINIO_HOST
               value: {{ .Release.Name }}-minio:9000
             - name: MINIO_BUCKET_IMPORT
@@ -84,11 +57,6 @@ spec:
                 secretKeyRef:
                   key: secretkey
                   name: {{ .Release.Name }}-minio
-            - name: ENCRYPTION_KEY
-              valueFrom:
-                secretKeyRef:
-                  key: password
-                  name: {{ .Release.Name }}-encryption-key
             {{- if eq .Values.refit.schemaConfigMap "__demo__" }}
             - name: REFIT_DEMO
               value: "true"
