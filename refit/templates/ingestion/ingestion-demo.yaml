@@ -1,4 +1,4 @@
- {{- if eq .Values.refit.schemaConfigMap "__demo__" }}
+ {{- if eq .Values.refit.demo true }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:

@@ -71,7 +71,7 @@ spec:
         - name: KAFKA_SENSOR_DATA_TOPIC 
           value: refit.inference.sensor.data
         - name: KAFKA_MODEL_PUBLISHED_TOPIC 
-          value: refit.training.model.published
+          value: refit.training.models
         - name: MINIO_HOST
           value: http://{{ .Release.Name }}-minio:9000
         - name: MINIO_BUCKET_IMPORT

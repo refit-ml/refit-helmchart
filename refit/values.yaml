@@ -109,3 +109,4 @@ refit:
       requests:
         memory: "500Mi"
   schemaConfigMap: __demo__
+  demo: false
