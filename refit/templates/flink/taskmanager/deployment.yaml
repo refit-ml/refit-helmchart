@@ -50,6 +50,43 @@ spec:
           mountPath: /opt/flink/conf/
         securityContext:
           runAsUser: 9999  # refers to user _flink_ from official flink image, change if necessary
+        env: 
+        - name: PROJECT
+          value: inference
+        - name: KAFKA_HOST
+          value: refit-kafka:9092
+        - name: KAFKA_DATA_TOPIC
+          value: refit.inference.data
+        - name: KAFKA_MODELS_TOPIC 
+          value: refit.training.models
+        - name: KAFKA_PREDICTIONS_TOPIC 
+          value: refit.inference.predictions
+        - name: KAFKA_IMPORT_TOPIC 
+          value: refit.training.import
+        - name: KAFKA_RAW_SENSOR_DATA_TOPIC 
+          value: refit.inference.raw.data
+        - name: KAFKA_SENSOR_DATA_TOPIC 
+          value: refit.inference.sensor.data
+        - name: KAFKA_MODEL_PUBLISHED_TOPIC 
+          value: refit.training.model.published
+        - name: MINIO_HOST
+          value: http://{{ .Release.Name }}-minio:9000
+        - name: MINIO_BUCKET_IMPORT
+          value: refit-import
+        - name: MINIO_BUCKET_MODELS
+          value: refit-models
+        - name: MINIO_BUCKET_SCHEMA
+          value: refit-schema
+        - name: MINIO_ACCESS_KEY
+          valueFrom:
+            secretKeyRef:
+              key: accesskey
+              name: {{ .Release.Name }}-minio
+        - name: MINIO_SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              key: secretkey
+              name: {{ .Release.Name }}-minio
       volumes:
       - name: {{ .Release.Name }}-flink-config-volume
         configMap:

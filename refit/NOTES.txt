@@ -8,6 +8,8 @@ kubectl port-forward service/refit-pulsar-standalone 6650:6650
 kubectl port-forward service/refit-grafana 8000:80
 kubectl port-forward service/refit-notebook 8888:8888
 
+kubectl port-forward service/refit-integrations 3000:3000
+
 To get the logs of the notebook so you can log in with the token: 
 
 kubectl logs pod/refit-notebook-0

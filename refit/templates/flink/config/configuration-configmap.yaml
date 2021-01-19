@@ -21,6 +21,20 @@ data:
     jobmanager.heap.size: 5120m
     taskmanager.memory.jvm-overhead.fraction: 0.8
     classloader.resolve-order: parent-first
+    containerized.taskmanager.env.MINIO_HOST: /usr/lib/native
+    containerized.taskmanager.env.MINIO_ACCESS_KEY: /usr/lib/native
+    containerized.taskmanager.env.MINIO_SECRET_KEY: /usr/lib/native
+    containerized.taskmanager.env.MINIO_BUCKET_IMPORT: /usr/lib/native
+    containerized.taskmanager.env.MINIO_BUCKET_MODELS: /usr/lib/native
+    containerized.taskmanager.env.MINIO_BUCKET_SCHEMA: /usr/lib/native
+    containerized.taskmanager.env.KAFKA_HOST: /usr/lib/native
+    containerized.taskmanager.env.KAFKA_DATA_TOPIC: /usr/lib/native
+    containerized.taskmanager.env.MODEL_PUBLISHED_TOPIC: /usr/lib/native
+    containerized.taskmanager.env.MODEL_DEPLOYED_TOPIC: /usr/lib/native
+    containerized.taskmanager.env.PREDICTIONS_TOPIC: /usr/lib/native
+    containerized.taskmanager.env.IMPORT_TOPIC: /usr/lib/native
+    containerized.taskmanager.env.RAW_SENSOR_DATA_TOPIC: /usr/lib/native
+    containerized.taskmanager.env.SENSOR_DATA_TOPIC: /usr/lib/native
   log4j.properties: |+
     log4j.rootLogger=INFO, file
     log4j.logger.akka=INFO

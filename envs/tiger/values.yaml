@@ -68,11 +68,11 @@ flink:
       memory: "6000Mi"
 
 refit:
-  version: BETA-0.54
+  version: BETA-0.57
   nodeSelector:
     refit: enabled
   integrations:
-    replicas: 4
+    replicas: 1
   ingestion: 
     replicas: 1
   notebook:

@@ -84,7 +84,7 @@ kafka:
       memory: "3000Mi"
 
 refit: 
-  version: BETA-0.28
+  version: BETA-0.57
   encryptionKey: __generated__
   cassandraPassword: __generated__
   integrations:

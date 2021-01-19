@@ -31,4 +31,6 @@ cd ../
 
 # To install on tiger 
 helm install refit ./refit --namespace refit -f envs/tiger/values.yaml
+helm upgrade refit ./refit --namespace refit -f envs/tiger/values.yaml
+
 # helm upgrade refit ./refit --namespace refit -f envs/tiger/values.yaml
