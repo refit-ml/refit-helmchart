@@ -87,6 +87,10 @@ refit:
   version: BETA-0.57
   encryptionKey: __generated__
   cassandraPassword: __generated__
+  persistance: 
+    enabled: true
+    storageClass: refit
+    size: 100Gi
   integrations:
     replicas: 1
     resources:

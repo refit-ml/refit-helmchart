@@ -1,6 +1,8 @@
 minio: 
   persistence: 
-    enabled: false
+    enabled: true
+    storageClass: refit
+    size: 100Gi
 
 kafka: 
   replicaCount: 2
@@ -8,7 +10,9 @@ kafka:
   nodeSelector:
     refit: enabled
   persistence:
-    enabled: false
+    enabled: true
+    storageClass: refit
+    size: 100Gi
   resources:
     limits:
       memory: "1000Mi"
@@ -16,7 +20,8 @@ kafka:
       memory: "500Mi"
   zookeeper:
     persistence:
-      enabled: false
+      enabled: true
+      storageClass: refit
     nodeSelector:
       refit: enabled
 
@@ -25,7 +30,9 @@ cassandra:
   cluster:
     seedCount: 6
   persistence:
-    enabled: false
+    enabled: true
+    storageClass: refit
+    size: 100Gi
   nodeSelector: 
     refit: enabled
   dbUser:
@@ -39,7 +46,9 @@ cassandra:
 
 grafana: 
   persistence:
-    enabled: false
+    enabled: true
+    storageClassName: refit
+    size: 100Gi
   plugins:
     - simpod-json-datasource
   resources:
@@ -68,13 +77,13 @@ flink:
       memory: "6000Mi"
 
 refit:
-  version: BETA-0.57
+  version: BETA-0.62
   nodeSelector:
     refit: enabled
   integrations:
-    replicas: 1
+    replicas: 3
   ingestion: 
-    replicas: 1
+    replicas: 3
   notebook:
     replicas: 1
     resources:

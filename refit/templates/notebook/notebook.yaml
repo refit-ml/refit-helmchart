@@ -1,3 +1,17 @@
+{{- if eq .Values.refit.persistance.enabled true }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+ name: {{ .Release.Name }}-notebook
+spec:
+ storageClassName: {{ .Values.refit.persistance.storageClass }}
+ accessModes:
+  - ReadWriteOnce
+ resources:
+  requests:
+   storage: 100Gi
+{{- end }}
+---
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -9,7 +23,7 @@ metadata:
     meta.helm.sh/release-name: "{{ .Release.Name }}"
     meta.helm.sh/release-namespace: "{{ .Release.Namespace }}"
 spec:
-  replicas: 1
+  replicas: {{ .Values.refit.notebook.replicas }}
   serviceName: {{ .Release.Name }}-notebook
   selector:
     matchLabels:
@@ -69,22 +83,21 @@ spec:
           ports:
             - containerPort: 8888
               name: api
-          # volumeMounts:
-          #   - name: {{ .Release.Name }}-notebook
-          #     mountPath: /home/docker_worker
+          {{- if eq .Values.refit.persistance.enabled true }}
+          volumeMounts:
+            - name: {{ .Release.Name }}-notebook
+              mountPath: /home/jovyan/work/
+          {{- end }}
       {{- with .Values.refit.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-  # volumeClaimTemplates:
-  # - metadata:
-  #     name: {{ .Release.Name }}-notebook
-  #   spec:
-  #     accessModes: [ "ReadWriteOnce" ]
-  #     storageClassName: "standard"
-  #     resources:
-  #       requests:
-  #         storage: 10Gi
+      {{- if eq .Values.refit.persistance.enabled true }}
+      volumes:
+      - name: {{ .Release.Name }}-notebook
+        persistentVolumeClaim:
+          claimName: {{ .Release.Name }}-notebook
+      {{- end }}
 ---
 apiVersion: v1
 kind: Service

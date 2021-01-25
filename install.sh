@@ -30,7 +30,7 @@ cd ../
 # helm $ACTION refit ./refit -f envs/local/values.yaml
 
 # To install on tiger 
-helm install refit ./refit --namespace refit -f envs/tiger/values.yaml
+# helm install refit ./refit --namespace refit -f envs/tiger/values.yaml
 helm upgrade refit ./refit --namespace refit -f envs/tiger/values.yaml
 
 # helm upgrade refit ./refit --namespace refit -f envs/tiger/values.yaml
