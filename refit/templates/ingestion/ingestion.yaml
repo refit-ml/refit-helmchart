@@ -26,7 +26,6 @@ spec:
         - name: {{ .Release.Name }}-ingestion
           image: cdliotprototype/cdl-refit-ingestion:{{ .Values.refit.version }}
           env:
-          env:
             - name: PROJECT
               value: ingestion
             - name: WAIT_CASSANDRA_HOST
@@ -87,6 +86,8 @@ spec:
             - name: REFIT_DEMO
               value: "false"
             {{- end }}
+            - name: REFIT_RELEASE_PREFIX
+              value: {{ .Release.Name }}
           resources:
             limits:
               memory: {{ .Values.refit.ingestion.resources.limits.memory }}
