@@ -42,15 +42,26 @@ cassandra:
       memory: "10000Mi"
     requests:
       memory: "5000Mi"
-  
+
+postgresql:
+  persistence: 
+    enabled: true
+    storageClass: refit
+    size: 100Gi
+  primary: 
+    nodeSelector: 
+      refit: enabled  
+  resources:
+    limits:
+      memory: "4000Mi"
+    requests:
+      memory: "1000Mi"
 
 grafana: 
   persistence:
-    enabled: true
-    storageClassName: refit
+    storageClass: refit
     size: 100Gi
-  plugins:
-    - simpod-json-datasource
+    enabled: true
   resources:
     limits:
       memory: "10000Mi"
@@ -58,6 +69,9 @@ grafana:
       memory: "5000Mi"
   nodeSelector:
     refit: enabled
+  admin: 
+    password: refit
+    user: refit
 
 flink: 
   flinkVersion: 1.10.1
@@ -77,13 +91,12 @@ flink:
       memory: "6000Mi"
 
 refit:
-  version: BETA-0.72
   nodeSelector:
     refit: enabled
   integrations:
-    replicas: 3
+    replicas: 4
   ingestion: 
-    replicas: 3
+    replicas: 1
   notebook:
     replicas: 1
     resources:

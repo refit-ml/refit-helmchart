@@ -39,4 +39,67 @@ data:
   {{- else }}
    cassandra-password: "{{ .Values.refit.cassandraPassword | b64enc }}"
   {{- end }}
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: refit-grafana-datasource
+  labels:
+    app: {{ .Release.Name }}
+    meta.helm.sh/release-name: "{{ .Release.Name }}"
+    meta.helm.sh/release-namespace: "{{ .Release.Namespace }}"
+  annotations:
+    meta.helm.sh/release-name: "{{ .Release.Name }}"
+    meta.helm.sh/release-namespace: "{{ .Release.Namespace }}"
+    "helm.sh/resource-policy": keep
+type: Opaque
+stringData:
+  datasources.yaml: |
+    apiVersion: 1
+    datasources:
+      - name: 'REFIT'
+        type: 'simpod-json-datasource'
+        access: 'proxy'
+        org_id: 1
+        url: 'http://{{ .Release.Name }}-integrations:3000'
+        isDefault: true
+        jsonData:
+          tlsSkipVerify: true
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: refit-postgresql-credentials
+  labels:
+    app: {{ .Release.Name }}
+    meta.helm.sh/release-name: "{{ .Release.Name }}"
+    meta.helm.sh/release-namespace: "{{ .Release.Namespace }}"
+  annotations:
+    meta.helm.sh/release-name: "{{ .Release.Name }}"
+    meta.helm.sh/release-namespace: "{{ .Release.Namespace }}"
+    "helm.sh/resource-policy": keep
+type: Opaque
+data:
+  {{- if eq .Values.refit.postgresqlPassword "__generated__" }}
+  postgresql-password: "{{ randAlphaNum 30 | b64enc }}"
+  {{- else }}
+  postgresql-password: "{{ .Values.refit.postgresqlPassword | b64enc }}"
+  {{- end }}
+  postgresqlUsername: postgres
+---
 {{- end }}
+apiVersion: v1
+kind: Secret
+metadata:
+  name: refit-scheduler-config
+  labels:
+    app: {{ .Release.Name }}
+    meta.helm.sh/release-name: "{{ .Release.Name }}"
+    meta.helm.sh/release-namespace: "{{ .Release.Namespace }}"
+  annotations:
+    meta.helm.sh/release-name: "{{ .Release.Name }}"
+    meta.helm.sh/release-namespace: "{{ .Release.Namespace }}"
+type: Opaque
+data:
+  config: |
+        {{ .Files.Get .Values.refit.schedulerConfigFile | b64enc }}

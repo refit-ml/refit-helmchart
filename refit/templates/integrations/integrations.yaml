@@ -59,6 +59,23 @@ spec:
               value: refit.inference.sensor.data
             - name: KAFKA_MODEL_PUBLISHED_TOPIC 
               value: refit.training.models
+            - name: KAFKA_TRAINING_JOB_SCHEDULED
+              value: refit.training.scheduled
+
+            - name: POSTGRES_HOST
+              value: {{ .Release.Name }}-postgresql
+            - name: POSTGRES_USERNAME
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: postgresql-password
+                  name: refit-postgresql-credentials
+            - name: POSTGRES_SCHEMA
+              value: postgres
+            - name: POSTGRES_PORT
+              value: "5432"
+
             - name: MINIO_HOST
               value: http://{{ .Release.Name }}-minio:9000
             - name: MINIO_BUCKET_IMPORT
@@ -66,6 +83,8 @@ spec:
             - name: MINIO_BUCKET_MODELS
               value: refit-models
             - name: MINIO_BUCKET_SCHEMA
+              value: refit-schema
+            - name: MINIO_BUCKET_JOBS
               value: refit-schema
             - name: MINIO_ACCESS_KEY
               valueFrom:

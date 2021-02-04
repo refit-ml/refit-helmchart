@@ -61,6 +61,8 @@ spec:
               value: refit-models
             - name: MINIO_BUCKET_SCHEMA
               value: refit-schema
+            - name: MINIO_BUCKET_JOBS
+              value: refit-jobs
             - name: MINIO_ACCESS_KEY
               valueFrom:
                 secretKeyRef:

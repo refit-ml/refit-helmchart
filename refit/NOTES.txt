@@ -5,8 +5,9 @@ To access various services on your localhost, use these commands
 kubectl port-forward service/refit-cassandra 9042:9042 9160:9160 
 kubectl port-forward service/refit-flink-jobmanager 8081:8081 
 kubectl port-forward service/refit-pulsar-standalone 6650:6650 
-kubectl port-forward service/refit-grafana 8000:80
+kubectl port-forward service/refit-grafana 8000:3000
 kubectl port-forward service/refit-notebook 8888:8888
+kubectl port-forward service/refit-postgresql 5555:5432
 
 kubectl port-forward service/refit-integrations 3000:3000
 
@@ -17,11 +18,12 @@ kubectl logs pod/refit-notebook-0
 NOTE: you will see a link like: http://127.0.0.1:8888/?token=RANDOM_CHARACTERS this is the link you will use to access the notebook
 To access various secrets, use these commands
 
-kubectl get secret refit-grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+kubectl get secret refit-grafana-admin -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
 kubectl get secret refit-cassandra-credentials -o jsonpath="{.data.cassandra-password}" | base64 --decode ; echo
 kubectl get secret refit-encryption-key -o jsonpath="{.data.password}" | base64 --decode ; echo
 kubectl get secret refit-minio -o jsonpath="{.data.accesskey}" | base64 --decode ; echo
 kubectl get secret refit-minio -o jsonpath="{.data.secretkey}" | base64 --decode ; echo
+kubectl get secret refit-postgresql-credentials -o jsonpath="{.data.postgresql-password}" | base64 --decode ; echo
 
 
 To start a local minikube cluster to get this running, follow these instructions

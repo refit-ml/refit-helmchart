@@ -22,6 +22,11 @@ spec:
       annotations:
         rollme: {{ randAlphaNum 5 | quote }}
     spec:
+      serviceAccountName: refit-scheduler
+      volumes:
+        - name: kube-config
+          secret:
+            secretName: refit-scheduler-config
       containers:
         - name: {{ .Release.Name }}-ingestion
           image: cdliotprototype/cdl-refit-ingestion:{{ .Values.refit.version }}
@@ -59,6 +64,23 @@ spec:
               value: refit.inference.sensor.data
             - name: KAFKA_MODEL_PUBLISHED_TOPIC 
               value: refit.training.models
+            - name: KAFKA_TRAINING_JOB_SCHEDULED
+              value: refit.training.scheduled
+
+            - name: POSTGRES_HOST
+              value: {{ .Release.Name }}-postgresql
+            - name: POSTGRES_USERNAME
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: postgresql-password
+                  name: refit-postgresql-credentials
+            - name: POSTGRES_SCHEMA
+              value: postgres
+            - name: POSTGRES_PORT
+              value: "5432"
+
             - name: MINIO_HOST
               value: http://{{ .Release.Name }}-minio:9000
             - name: MINIO_BUCKET_IMPORT
@@ -67,6 +89,8 @@ spec:
               value: refit-models
             - name: MINIO_BUCKET_SCHEMA
               value: refit-schema
+            - name: MINIO_BUCKET_JOBS
+              value: refit-jobs
             - name: MINIO_ACCESS_KEY
               valueFrom:
                 secretKeyRef:
@@ -88,6 +112,10 @@ spec:
             {{- end }}
             - name: REFIT_RELEASE_PREFIX
               value: {{ .Release.Name }}
+            - name: REFIT_NAMESPACE
+              value: {{ .Release.Namespace }}
+            - name: REFIT_VERSION
+              value: {{ .Values.refit.version }}
           resources:
             limits:
               memory: {{ .Values.refit.ingestion.resources.limits.memory }}
@@ -96,6 +124,10 @@ spec:
           ports:
             - containerPort: 3030
               name: api
+          volumeMounts:
+            - name: kube-config
+              mountPath: "/.kube/"
+              readOnly: true
       {{- with .Values.refit.nodeSelector }}
       nodeSelector:
       {{- toYaml . | nindent 8 }}

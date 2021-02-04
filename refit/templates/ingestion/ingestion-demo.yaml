@@ -58,6 +58,25 @@ spec:
               value: refit.inference.raw.data
             - name: KAFKA_SENSOR_DATA_TOPIC 
               value: refit.inference.sensor.data
+            - name: KAFKA_MODEL_PUBLISHED_TOPIC 
+              value: refit.training.models
+            - name: KAFKA_TRAINING_JOB_SCHEDULED
+              value: refit.training.scheduled
+
+            - name: POSTGRES_HOST
+              value: {{ .Release.Name }}-postgresql
+            - name: POSTGRES_USERNAME
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: postgresql-password
+                  name: refit-postgresql-credentials
+            - name: POSTGRES_SCHEMA
+              value: postgres
+            - name: POSTGRES_PORT
+              value: "5432"
+
             - name: MINIO_HOST
               value: http://{{ .Release.Name }}-minio:9000
             - name: MINIO_BUCKET_IMPORT
@@ -65,6 +84,8 @@ spec:
             - name: MINIO_BUCKET_MODELS
               value: refit-models
             - name: MINIO_BUCKET_SCHEMA
+              value: refit-schema
+            - name: MINIO_BUCKET_JOBS
               value: refit-schema
             - name: MINIO_ACCESS_KEY
               valueFrom:
@@ -83,8 +104,14 @@ spec:
                   name: {{ .Release.Name }}-encryption-key
             {{- if eq .Values.refit.schemaConfigMap "__demo__" }}
             - name: REFIT_DEMO
-              value: "true"
+              value: "false"
             {{- end }}
+            - name: REFIT_RELEASE_PREFIX
+              value: {{ .Release.Name }}
+            - name: REFIT_NAMESPACE
+              value: {{ .Release.Namespace }}
+            - name: REFIT_VERSION
+              value: {{ .Values.refit.version }}
           resources:
             limits:
               memory: {{ .Values.refit.ingestion.resources.limits.memory }}

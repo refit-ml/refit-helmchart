@@ -4,6 +4,11 @@ minio:
   resources: 
     requests: 
       memory: "1000Mi"
+  buckets: 
+    - name: refit-import
+    - name: refit-models
+    - name: refit-schema
+    - name: refit-jobs
 
 cassandra:
   image:
@@ -25,38 +30,20 @@ cassandra:
     maxHeapSize: 1024m
     newHeapSize: 800m
 
-  cluster: 
-    slaveCount: 2
-  metrics:
-    enabled: false
-
-  resources:
-    limits:
-      memory: "10000Mi"
-    requests:
-      memory: "3000Mi"
-
+postgresql:
+  image:
+    repository: cdliotprototype/cdl-refit-postgresql
+    tag: BETA-0.74
+  global: 
+    postgresql: 
+      existingSecret: refit-postgresql-credentials
+  
 grafana: 
   persistence:
     enabled: true
-  env:
-    GF_INSTALL_PLUGINS: grafana-clock-panel,grafana-simple-json-datasource,simpod-json-datasource
-  plugins:
-    - name:
-      value: grafana-simple-json-datasource
+  plugins: grafana-clock-panel,grafana-simple-json-datasource,simpod-json-datasource
   datasources:
-    datasources.yaml:
-      apiVersion: 1
-      datasources:
-      - name: REFIT
-        type: simpod-json-datasource
-        url: http://refit-integrations:3000
-        isDefault: true
-        jsonData:
-          tlsSkipVerify: true
-  sidecar:
-    dashboards:
-      enabled: true
+    secretName: refit-grafana-datasource
 
 flink: 
   flinkVersion: 1.10.1
@@ -84,9 +71,11 @@ kafka:
       memory: "3000Mi"
 
 refit: 
-  version: BETA-0.57
+  version: 0.0.4
   encryptionKey: __generated__
   cassandraPassword: __generated__
+  postgresqlPassword: __generated__
+  schedulerConfigFile: secrets/config
   persistance: 
     enabled: true
     storageClass: refit
@@ -113,4 +102,4 @@ refit:
       requests:
         memory: "500Mi"
   schemaConfigMap: __demo__
-  demo: false
+  demo: true
