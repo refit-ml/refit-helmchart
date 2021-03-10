@@ -53,7 +53,7 @@ spec:
             - name: KAFKA_PREDICTIONS_TOPIC 
               value: refit.inference.predictions
             - name: KAFKA_IMPORT_TOPIC 
-              value: refit.training.import
+              value: refit.import.sensor-data
             - name: KAFKA_RAW_SENSOR_DATA_TOPIC 
               value: refit.inference.raw.data
             - name: KAFKA_SENSOR_DATA_TOPIC 
@@ -62,6 +62,10 @@ spec:
               value: refit.training.models
             - name: KAFKA_TRAINING_JOB_SCHEDULED
               value: refit.training.scheduled
+            - name: KAFKA_TRAINING_WINDOW_IMPORT_TOPIC
+              value: refit.import.training-window
+            - name: KAFKA_STATIC_DATA_IMPORT_TOPIC
+              value: refit.import.static-data
 
             - name: POSTGRES_HOST
               value: {{ .Release.Name }}-postgresql
@@ -86,7 +90,7 @@ spec:
             - name: MINIO_BUCKET_SCHEMA
               value: refit-schema
             - name: MINIO_BUCKET_JOBS
-              value: refit-schema
+              value: refit-jobs
             - name: MINIO_ACCESS_KEY
               valueFrom:
                 secretKeyRef:

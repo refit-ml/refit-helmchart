@@ -84,7 +84,7 @@ flink:
     requests: 
       memory: "5000Mi"
   taskManager: 
-    replicas: 4
+    replicas: 6
     limits: 
       memory: "15000Mi"
     requests: 
@@ -94,7 +94,7 @@ refit:
   nodeSelector:
     refit: enabled
   integrations:
-    replicas: 4
+    replicas: 1
   ingestion: 
     replicas: 1
   notebook:

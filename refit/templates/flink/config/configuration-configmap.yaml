@@ -27,14 +27,24 @@ data:
     containerized.taskmanager.env.MINIO_BUCKET_IMPORT: /usr/lib/native
     containerized.taskmanager.env.MINIO_BUCKET_MODELS: /usr/lib/native
     containerized.taskmanager.env.MINIO_BUCKET_SCHEMA: /usr/lib/native
+    containerized.taskmanager.env.MINIO_BUCKET_JOBS: /usr/lib/native
     containerized.taskmanager.env.KAFKA_HOST: /usr/lib/native
     containerized.taskmanager.env.KAFKA_DATA_TOPIC: /usr/lib/native
-    containerized.taskmanager.env.MODEL_PUBLISHED_TOPIC: /usr/lib/native
-    containerized.taskmanager.env.MODEL_DEPLOYED_TOPIC: /usr/lib/native
-    containerized.taskmanager.env.PREDICTIONS_TOPIC: /usr/lib/native
-    containerized.taskmanager.env.IMPORT_TOPIC: /usr/lib/native
-    containerized.taskmanager.env.RAW_SENSOR_DATA_TOPIC: /usr/lib/native
-    containerized.taskmanager.env.SENSOR_DATA_TOPIC: /usr/lib/native
+    containerized.taskmanager.env.KAFKA_MODELS_TOPIC: /usr/lib/native
+    containerized.taskmanager.env.KAFKA_PREDICTIONS_TOPIC: /usr/lib/native
+    containerized.taskmanager.env.KAFKA_IMPORT_TOPIC: /usr/lib/native
+    containerized.taskmanager.env.KAFKA_RAW_SENSOR_DATA_TOPIC: /usr/lib/native
+    containerized.taskmanager.env.KAFKA_SENSOR_DATA_TOPIC: /usr/lib/native
+    containerized.taskmanager.env.KAFKA_MODEL_PUBLISHED_TOPIC: /usr/lib/native
+    containerized.taskmanager.env.KAFKA_TRAINING_JOB_SCHEDULED: /usr/lib/native
+    containerized.taskmanager.env.KAFKA_TRAINING_WINDOW_IMPORT_TOPIC: /usr/lib/native
+    containerized.taskmanager.env.POSTGRES_HOST: /usr/lib/native
+    containerized.taskmanager.env.POSTGRES_USERNAME: /usr/lib/native
+    containerized.taskmanager.env.POSTGRES_PASSWORD: /usr/lib/native
+    containerized.taskmanager.env.POSTGRES_SCHEMA: /usr/lib/native
+    containerized.taskmanager.env.POSTGRES_PORT: /usr/lib/native
+
+
   log4j.properties: |+
     log4j.rootLogger=INFO, file
     log4j.logger.akka=INFO

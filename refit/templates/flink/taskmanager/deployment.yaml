@@ -53,6 +53,21 @@ spec:
         env: 
         - name: PROJECT
           value: inference
+        - name: WAIT_CASSANDRA_HOST
+          value: {{ .Release.Name }}-cassandra
+        - name: CASSANDRA_HOST
+          value: {{ .Release.Name }}-cassandra
+        - name: CASSANDRA_PORT
+          value: "9042"
+        - name: CASSANDRA_KEYSPACE
+          value: cdl_refit
+        - name: CASSANDRA_USER
+          value: cassandra
+        - name: CASSANDRA_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: cassandra-password
+              name: refit-cassandra-credentials
         - name: KAFKA_HOST
           value: refit-kafka:9092
         - name: KAFKA_DATA_TOPIC
@@ -62,13 +77,34 @@ spec:
         - name: KAFKA_PREDICTIONS_TOPIC 
           value: refit.inference.predictions
         - name: KAFKA_IMPORT_TOPIC 
-          value: refit.training.import
+          value: refit.import.sensor-data
         - name: KAFKA_RAW_SENSOR_DATA_TOPIC 
           value: refit.inference.raw.data
         - name: KAFKA_SENSOR_DATA_TOPIC 
           value: refit.inference.sensor.data
         - name: KAFKA_MODEL_PUBLISHED_TOPIC 
           value: refit.training.models
+        - name: KAFKA_TRAINING_JOB_SCHEDULED
+          value: refit.training.scheduled
+        - name: KAFKA_TRAINING_WINDOW_IMPORT_TOPIC
+          value: refit.import.training-window
+        - name: KAFKA_STATIC_DATA_IMPORT_TOPIC
+          value: refit.import.static-data
+
+        - name: POSTGRES_HOST
+          value: {{ .Release.Name }}-postgresql
+        - name: POSTGRES_USERNAME
+          value: postgres
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: postgresql-password
+              name: refit-postgresql-credentials
+        - name: POSTGRES_SCHEMA
+          value: postgres
+        - name: POSTGRES_PORT
+          value: "5432"
+
         - name: MINIO_HOST
           value: http://{{ .Release.Name }}-minio:9000
         - name: MINIO_BUCKET_IMPORT
@@ -77,6 +113,8 @@ spec:
           value: refit-models
         - name: MINIO_BUCKET_SCHEMA
           value: refit-schema
+        - name: MINIO_BUCKET_JOBS
+          value: refit-jobs
         - name: MINIO_ACCESS_KEY
           valueFrom:
             secretKeyRef:
@@ -87,6 +125,21 @@ spec:
             secretKeyRef:
               key: secretkey
               name: {{ .Release.Name }}-minio
+        - name: ENCRYPTION_KEY
+          valueFrom:
+            secretKeyRef:
+              key: password
+              name: {{ .Release.Name }}-encryption-key
+        {{- if eq .Values.refit.schemaConfigMap "__demo__" }}
+        - name: REFIT_DEMO
+          value: "false"
+        {{- end }}
+        - name: REFIT_RELEASE_PREFIX
+          value: {{ .Release.Name }}
+        - name: REFIT_NAMESPACE
+          value: {{ .Release.Namespace }}
+        - name: REFIT_VERSION
+          value: {{ .Values.refit.version }}
       volumes:
       - name: {{ .Release.Name }}-flink-config-volume
         configMap:
