@@ -101,6 +101,6 @@ refit:
     replicas: 1
     resources:
       limits:
-        memory: "4000Mi"
+        memory: "10000Mi"
       requests:
-        memory: "2000Mi"
+        memory: "5000Mi"
