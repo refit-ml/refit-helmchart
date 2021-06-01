@@ -4,11 +4,6 @@ minio:
   resources: 
     requests: 
       memory: "1000Mi"
-  buckets: 
-    - name: refit-import
-    - name: refit-models
-    - name: refit-schema
-    - name: refit-jobs
 
 cassandra:
   image:
@@ -33,7 +28,7 @@ cassandra:
 postgresql:
   image:
     repository: cdliotprototype/cdl-refit-postgresql
-    tag: BETA-0.74
+    tag: 0.0.4
   global: 
     postgresql: 
       existingSecret: refit-postgresql-credentials

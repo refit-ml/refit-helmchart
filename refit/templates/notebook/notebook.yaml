@@ -41,6 +41,19 @@ spec:
         - name: {{ .Release.Name }}-notebook
           image: cdliotprototype/cdl-refit-notebook:{{ .Values.refit.version }}
           env:
+            - name: POSTGRES_HOST
+              value: {{ .Release.Name }}-postgresql
+            - name: POSTGRES_USERNAME
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: postgresql-password
+                  name: refit-postgresql-credentials
+            - name: POSTGRES_SCHEMA
+              value: postgres
+            - name: POSTGRES_PORT
+              value: "5432"
             - name: FLINK_HOST
               value: {{ .Release.Name }}-flink-jobmanager
             - name: WAIT_FLINK_HOST

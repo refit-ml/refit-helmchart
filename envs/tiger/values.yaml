@@ -3,7 +3,17 @@ minio:
     enabled: true
     storageClass: refit
     size: 100Gi
-
+  nodeSelector:
+    refit: enabled
+  accessKey: refit
+  secretKey: refit-secret-key
+  mode: distributed
+  image: 
+    tag: RELEASE.2021-02-14T04-01-33Z
+  resources:
+    requests:
+      memory: 1Gi
+    
 kafka: 
   replicaCount: 2
   autoCreateTopicsEnable: true
@@ -101,6 +111,6 @@ refit:
     replicas: 1
     resources:
       limits:
-        memory: "10000Mi"
+        memory: "15000Mi"
       requests:
-        memory: "5000Mi"
+        memory: "8000Mi"

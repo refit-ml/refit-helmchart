@@ -13,6 +13,9 @@ kubectl port-forward service/refit-integrations 3000:3000
 
 To get the logs of the notebook so you can log in with the token: 
 
+
+kafka-topics.sh --zookeeper refit-zookeeper --alter --topic refit.inference.data --config retention.ms=10000
+
 kubectl logs pod/refit-notebook-0
 
 NOTE: you will see a link like: http://127.0.0.1:8888/?token=RANDOM_CHARACTERS this is the link you will use to access the notebook

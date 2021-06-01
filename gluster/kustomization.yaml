@@ -1,0 +1,7 @@
+namespace: refit
+commonLabels:
+  service: cdl-org
+
+resources:
+  - endpoints.yaml
+  - service.yaml
