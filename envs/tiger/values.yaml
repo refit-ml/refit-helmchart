@@ -15,7 +15,7 @@ minio:
       memory: 1Gi
     
 kafka: 
-  replicaCount: 2
+  replicaCount: 3
   autoCreateTopicsEnable: true
   nodeSelector:
     refit: enabled
