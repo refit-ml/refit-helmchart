@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: refit-release-pv-1 
+  name: refit-dev-pv-1 
 spec:
   capacity:
     storage: 100Gi     
@@ -10,14 +10,14 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-1
+    path: /cdl_gluster/refit/vol10/vol-1
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: refit-release-pv-2
+  name: refit-dev-pv-2
 spec:
   capacity:
     storage: 100Gi     
@@ -26,14 +26,14 @@ spec:
   storageClassName: refit  
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-2
+    path: /cdl_gluster/refit/vol10/vol-2
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: refit-release-pv-3
+  name: refit-dev-pv-3
 spec:
   capacity:
     storage: 100Gi     
@@ -42,14 +42,14 @@ spec:
   storageClassName: refit 
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-3
+    path: /cdl_gluster/refit/vol10/vol-3
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: refit-release-pv-4
+  name: refit-dev-pv-4
 spec:
   capacity:
     storage: 100Gi     
@@ -58,14 +58,14 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-4
+    path: /cdl_gluster/refit/vol10/vol-4
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: refit-release-pv-5
+  name: refit-dev-pv-5
 spec:
   capacity:
     storage: 100Gi     
@@ -74,14 +74,14 @@ spec:
   storageClassName: refit  
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-5
+    path: /cdl_gluster/refit/vol10/vol-5
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: refit-release-pv-6
+  name: refit-dev-pv-6
 spec:
   capacity:
     storage: 100Gi     
@@ -90,14 +90,14 @@ spec:
   storageClassName: refit   
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-6
+    path: /cdl_gluster/refit/vol10/vol-6
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: refit-release-pv-7
+  name: refit-dev-pv-7
 spec:
   capacity:
     storage: 100Gi     
@@ -106,14 +106,14 @@ spec:
   storageClassName: refit  
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-7
+    path: /cdl_gluster/refit/vol10/vol-7
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: refit-release-pv-8
+  name: refit-dev-pv-8
 spec:
   capacity:
     storage: 100Gi     
@@ -122,14 +122,14 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-8
+    path: /cdl_gluster/refit/vol10/vol-8
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: refit-release-pv-9
+  name: refit-dev-pv-9
 spec:
   capacity:
     storage: 100Gi     
@@ -138,14 +138,14 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-9
+    path: /cdl_gluster/refit/vol10/vol-9
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: refit-release-pv-10
+  name: refit-dev-pv-10
 spec:
   capacity:
     storage: 100Gi     
@@ -154,14 +154,14 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-10
+    path: /cdl_gluster/refit/vol10/vol-10
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: refit-release-pv-11
+  name: refit-dev-pv-11
 spec:
   capacity:
     storage: 100Gi     
@@ -170,14 +170,14 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-11
+    path: /cdl_gluster/refit/vol10/vol-11
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: refit-release-pv-12
+  name: refit-dev-pv-12
 spec:
   capacity:
     storage: 100Gi     
@@ -186,14 +186,14 @@ spec:
   storageClassName: refit  
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-12
+    path: /cdl_gluster/refit/vol10/vol-12
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: refit-release-pv-13
+  name: refit-dev-pv-13
 spec:
   capacity:
     storage: 100Gi     
@@ -202,14 +202,14 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-13
+    path: /cdl_gluster/refit/vol10/vol-13
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: refit-release-pv-14
+  name: refit-dev-pv-14
 spec:
   capacity:
     storage: 100Gi     
@@ -218,14 +218,14 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-14
+    path: /cdl_gluster/refit/vol10/vol-14
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: refit-release-pv-15
+  name: refit-dev-pv-15
 spec:
   capacity:
     storage: 100Gi     
@@ -234,14 +234,14 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-15
+    path: /cdl_gluster/refit/vol10/vol-15
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: refit-release-pv-16
+  name: refit-dev-pv-16
 spec:
   capacity:
     storage: 100Gi     
@@ -250,14 +250,14 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-16
+    path: /cdl_gluster/refit/vol10/vol-16
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: refit-release-pv-17
+  name: refit-dev-pv-17
 spec:
   capacity:
     storage: 100Gi     
@@ -266,14 +266,14 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-17
+    path: /cdl_gluster/refit/vol10/vol-17
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: refit-release-pv-18
+  name: refit-dev-pv-18
 spec:
   capacity:
     storage: 100Gi     
@@ -282,14 +282,14 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-18
+    path: /cdl_gluster/refit/vol10/vol-18
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: refit-release-pv-19
+  name: refit-dev-pv-19
 spec:
   capacity:
     storage: 100Gi     
@@ -298,14 +298,14 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-19
+    path: /cdl_gluster/refit/vol10/vol-19
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: refit-release-pv-20
+  name: refit-dev-pv-20
 spec:
   capacity:
     storage: 100Gi     
@@ -314,7 +314,7 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-20
+    path: /cdl_gluster/refit/vol10/vol-20
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 
@@ -322,7 +322,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: refit-release-pv-21
+  name: refit-dev-pv-21
 spec:
   capacity:
     storage: 100Gi     
@@ -331,14 +331,14 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-21
+    path: /cdl_gluster/refit/vol10/vol-21
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: refit-release-pv-22
+  name: refit-dev-pv-22
 spec:
   capacity:
     storage: 100Gi     
@@ -347,14 +347,14 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-22
+    path: /cdl_gluster/refit/vol10/vol-22
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: refit-release-pv-23
+  name: refit-dev-pv-23
 spec:
   capacity:
     storage: 100Gi     
@@ -363,14 +363,14 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-23
+    path: /cdl_gluster/refit/vol10/vol-23
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: refit-release-pv-24
+  name: refit-dev-pv-24
 spec:
   capacity:
     storage: 100Gi     
@@ -379,14 +379,14 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-24
+    path: /cdl_gluster/refit/vol10/vol-24
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: refit-release-pv-25
+  name: refit-dev-pv-25
 spec:
   capacity:
     storage: 100Gi     
@@ -395,14 +395,14 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-25
+    path: /cdl_gluster/refit/vol10/vol-25
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: refit-release-pv-26
+  name: refit-dev-pv-26
 spec:
   capacity:
     storage: 100Gi     
@@ -411,14 +411,14 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-26
+    path: /cdl_gluster/refit/vol10/vol-26
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: refit-release-pv-27
+  name: refit-dev-pv-27
 spec:
   capacity:
     storage: 100Gi     
@@ -427,14 +427,14 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-27
+    path: /cdl_gluster/refit/vol10/vol-27
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: refit-release-pv-28
+  name: refit-dev-pv-28
 spec:
   capacity:
     storage: 100Gi     
@@ -443,14 +443,14 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-28
+    path: /cdl_gluster/refit/vol10/vol-28
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: refit-release-pv-29
+  name: refit-dev-pv-29
 spec:
   capacity:
     storage: 100Gi     
@@ -459,14 +459,14 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-29
+    path: /cdl_gluster/refit/vol10/vol-29
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: refit-release-pv-30
+  name: refit-dev-pv-30
 spec:
   capacity:
     storage: 100Gi     
@@ -475,6 +475,6 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-30
+    path: /cdl_gluster/refit/vol10/vol-30
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
