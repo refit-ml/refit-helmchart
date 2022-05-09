@@ -1,4 +1,4 @@
-namespace: refit
+namespace: refit-release
 commonLabels:
   service: cdl-org
 
