@@ -10,7 +10,7 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-1
+    path: /cdl_gluster/refit/r4/vol-1
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
@@ -26,7 +26,7 @@ spec:
   storageClassName: refit  
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-2
+    path: /cdl_gluster/refit/r4/vol-2
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
@@ -42,7 +42,7 @@ spec:
   storageClassName: refit 
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-3
+    path: /cdl_gluster/refit/r4/vol-3
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
@@ -58,7 +58,7 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-4
+    path: /cdl_gluster/refit/r4/vol-4
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
@@ -74,7 +74,7 @@ spec:
   storageClassName: refit  
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-5
+    path: /cdl_gluster/refit/r4/vol-5
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
@@ -90,7 +90,7 @@ spec:
   storageClassName: refit   
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-6
+    path: /cdl_gluster/refit/r4/vol-6
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
@@ -106,7 +106,7 @@ spec:
   storageClassName: refit  
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-7
+    path: /cdl_gluster/refit/r4/vol-7
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
@@ -122,7 +122,7 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-8
+    path: /cdl_gluster/refit/r4/vol-8
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
@@ -138,7 +138,7 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-9
+    path: /cdl_gluster/refit/r4/vol-9
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
@@ -154,7 +154,7 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-10
+    path: /cdl_gluster/refit/r4/vol-10
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
@@ -170,7 +170,7 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-11
+    path: /cdl_gluster/refit/r4/vol-11
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
@@ -186,7 +186,7 @@ spec:
   storageClassName: refit  
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-12
+    path: /cdl_gluster/refit/r4/vol-12
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
@@ -202,7 +202,7 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-13
+    path: /cdl_gluster/refit/r4/vol-13
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
@@ -218,7 +218,7 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-14
+    path: /cdl_gluster/refit/r4/vol-14
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
@@ -234,7 +234,7 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-15
+    path: /cdl_gluster/refit/r4/vol-15
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
@@ -250,7 +250,7 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-16
+    path: /cdl_gluster/refit/r4/vol-16
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
@@ -266,7 +266,7 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-17
+    path: /cdl_gluster/refit/r4/vol-17
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
@@ -282,7 +282,7 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-18
+    path: /cdl_gluster/refit/r4/vol-18
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
@@ -298,7 +298,7 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-19
+    path: /cdl_gluster/refit/r4/vol-19
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
@@ -314,7 +314,7 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-20
+    path: /cdl_gluster/refit/r4/vol-20
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 
@@ -331,7 +331,7 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-21
+    path: /cdl_gluster/refit/r4/vol-21
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
@@ -347,7 +347,7 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-22
+    path: /cdl_gluster/refit/r4/vol-22
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
@@ -363,7 +363,7 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-23
+    path: /cdl_gluster/refit/r4/vol-23
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
@@ -379,7 +379,7 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-24
+    path: /cdl_gluster/refit/r4/vol-24
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
@@ -395,7 +395,7 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-25
+    path: /cdl_gluster/refit/r4/vol-25
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
@@ -411,7 +411,7 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-26
+    path: /cdl_gluster/refit/r4/vol-26
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
@@ -427,7 +427,7 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-27
+    path: /cdl_gluster/refit/r4/vol-27
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
@@ -443,7 +443,7 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-28
+    path: /cdl_gluster/refit/r4/vol-28
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
@@ -459,7 +459,7 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-29
+    path: /cdl_gluster/refit/r4/vol-29
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
 ---
@@ -475,6 +475,6 @@ spec:
   storageClassName: refit
   glusterfs:         
     endpoints: gluster-cluster 
-    path: /cdl_gluster/refit/r3/vol-30
+    path: /cdl_gluster/refit/r4/vol-30
     readOnly: false
   persistentVolumeReclaimPolicy: Retain
