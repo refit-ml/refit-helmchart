@@ -3,6 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
  name: gluster-claim
 spec:
+ storageClassName: refit 
  accessModes:
   - ReadWriteMany
  resources:
