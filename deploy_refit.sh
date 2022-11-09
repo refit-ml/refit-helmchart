@@ -13,10 +13,10 @@
 
 
 NAMESPACE=refit-release
-GLUSTERDIR=r14
+GLUSTERDIR=r26
 
-NAMESPACEOLD=refit-debugging
-GLUSTERDIROLD=r13
+NAMESPACEOLD=refit-rk-test
+GLUSTERDIROLD=r25
 
 
 ## setup environment 
@@ -71,3 +71,6 @@ kubectl apply -k gluster/pv
 
 ## deploy refit 
 helm install refit ./refit --namespace $NAMESPACE -f envs/tiger/values.yaml
+
+
+

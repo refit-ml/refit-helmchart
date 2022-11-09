@@ -29,3 +29,9 @@ Often times the tiger cluster looses connection to the gluster endpoints and pod
 
 - `chmod +x fix-pods.sh`
 - `./fix-pods.sh`
+
+
+## If unable to open the notebook using 127.0.0.1:8888 try to login again using 
+### this is indeed necessary otherwise refit_init will not work while loading the schema 
+ssh -i ......  -L 8888:localhost:8888
+

@@ -11,24 +11,24 @@ home: https://github.com/C0deKing/iot-prototype
 sources:
   - https://github.com/C0deKing/iot-prototype
 dependencies:
-  - name: cassandra
-    version: 9.1.0
-    repository: "@bitnami"
-    alias: cassandra
-  - name: postgresql
-    version: 11.9.1
-    repository: "@bitnami"
-    alias: postgresql
-  - name: minio
-    version: 11.10.0
-    repository: "@bitnami"
-    alias: minio
-  - name: grafana
-    version: 8.2.0
-    repository: "@bitnami"
-    alias: grafana
+  #- name: cassandra
+  #  version: 9.1.0
+  #  repository: "@bitnami"
+  #  alias: cassandra
+  #- name: postgresql
+  #  version: 11.9.1
+  #  repository: "@bitnami"
+  #  alias: postgresql
+  #- name: minio
+  #  version: 11.10.0
+  #  repository: "@bitnami"
+  #  alias: minio
+  #- name: grafana
+  #  version: 8.2.0
+  #  repository: "@bitnami"
+  #  alias: grafana
   - name: kafka
-    version: 19.0.0
+    version: 18.4.4
     repository: "@bitnami"
     alias: kafka
   # - name: jupyterhub

@@ -1,18 +1,6 @@
 dependencies:
-- name: cassandra
-  repository: https://charts.bitnami.com/bitnami
-  version: 9.1.0
-- name: postgresql
-  repository: https://charts.bitnami.com/bitnami
-  version: 11.9.1
-- name: minio
-  repository: https://charts.bitnami.com/bitnami
-  version: 11.10.0
-- name: grafana
-  repository: https://charts.bitnami.com/bitnami
-  version: 8.2.0
 - name: kafka
   repository: https://charts.bitnami.com/bitnami
-  version: 19.0.0
-digest: sha256:023fc4361e4be69898029ccbab5bfc57ffb3da26c59919965ff75d2b3e7bbec6
-generated: "2022-10-26T12:18:56.381006133-05:00"
+  version: 18.4.4
+digest: sha256:30a477b4a9aedf6c4fd38da5dfe7089de6fa0f4ef9cd459ce89bff2baede3d7d
+generated: "2022-11-08T18:02:01.054224717-06:00"

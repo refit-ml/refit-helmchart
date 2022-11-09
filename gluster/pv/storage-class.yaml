@@ -7,3 +7,5 @@ reclaimPolicy: Retain
 allowVolumeExpansion: true
 
 volumeBindingMode: Immediate
+
+
