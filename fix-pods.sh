@@ -2,4 +2,4 @@
 
 kubectl apply -k gluster/cluster/
 
-kubectl get pods -n refit-rk-test --field-selector 'status.phase!=Running' -o name | xargs kubectl delete
+kubectl get pods -n refit-release --field-selector 'status.phase!=Running' -o name | xargs kubectl delete

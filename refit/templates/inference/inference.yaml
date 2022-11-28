@@ -8,9 +8,9 @@ metadata:
   annotations:
     meta.helm.sh/release-name: "{{ .Release.Name }}"
     meta.helm.sh/release-namespace: "{{ .Release.Namespace }}"
-    "helm.sh/hook": post-upgrade
+    "helm.sh/hook": post-install,post-upgrade
     "helm.sh/hook-weight": "-5"
-    # "helm.sh/hook-delete-policy": hook-succeeded
+    #"helm.sh/hook-delete-policy": hook-succeeded
 spec:
   template:
     metadata:

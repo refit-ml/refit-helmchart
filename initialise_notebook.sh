@@ -5,10 +5,11 @@
 
 
 
-version=26
+version=41
 volnum=`kubectl get pv | grep "refit-release/refit-notebook" | gawk '{print $1}' | cut -d "-" -f 4`
 copyto="/mnt-gluster/cdl-data/refit/r${version}/vol-${volnum}/"
 copyfrom="../backups/cdl-data/refit/r25/vol-3/*"
+#copyfrom="/mnt-gluster/cdl-data/refit/r26/vol-10/*"
 echo "copying notebook data from $copyfrom to ${copyto} "
 
 cp -r $copyfrom $copyto

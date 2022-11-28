@@ -13,10 +13,10 @@
 
 
 NAMESPACE=refit-release
-GLUSTERDIR=r26
+GLUSTERDIR=r42
 
 NAMESPACEOLD=refit-rk-test
-GLUSTERDIROLD=r25
+GLUSTERDIROLD=r41
 
 
 ## setup environment 
