@@ -6,11 +6,12 @@ minio:
       memory: "1000Mi"
 
 cassandra:
+  serviceAccountName: refit
   image:
     repository: cdliotprototype/cdl-refit-cassandra
     tag: BETA-0.28
   cluster:
-    replicaCount: 1
+    replicaCount: 12
     seedCount: 1
   persistence:
     enabled: true
@@ -26,6 +27,10 @@ cassandra:
     newHeapSize: 800m
 
 postgresql:
+  persistence:
+    enabled: true
+    storageClass: refit
+
   image:
     repository: cdliotprototype/cdl-refit-postgresql
     tag: 0.0.4
@@ -55,18 +60,45 @@ flink:
     requests: 
       memory: "2000Mi"
 kafka: 
-  replicaCount: 3
+  replicaCount: 12
   autoCreateTopicsEnable: true
+  imagePullPolicy: IfNotPresent
+  #config: 
+  #    log.flush.start.offset.checkpoint.interval.ms = 600000
+  volumePermissions:
+      enabled: true
+  containers:
+      securityContext:
+          runAsUser: 0
+  
+  livenessProbe:
+    initialDelaySeconds: 30
+    periodSeconds: 30
+    timeoutSeconds: 30
+  #  failureThreshold: 10
+  readinessProbe:
+    initialDelaySeconds: 30
+    periodSeconds: 30 
+    timeoutSeconds: 30
+  #  failureThreshold: 10
   persistence:
     enabled: true
+    
   resources:
     limits:
       memory: "10000Mi"
     requests:
       memory: "3000Mi"
 
+
 refit: 
-  version: 0.0.30-SNAPSHOT
+  version: 0.1.10
+  #version: 0.1.7  ## this one worked for 17 days most stable
+  #version: 0.1.6
+  #version: 0.1.5
+  #version: 0.1.4
+  #version: 0.1.2
+  #version: 0.1.0
   encryptionKey: __generated__
   cassandraPassword: __generated__
   postgresqlPassword: __generated__

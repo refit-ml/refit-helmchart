@@ -22,6 +22,7 @@ spec:
       annotations:
         rollme: {{ randAlphaNum 5 | quote }}
     spec:
+      serviceAccountName: refit
       containers:
         - name: {{ .Release.Name }}-integrations
           image: cdliotprototype/cdl-refit-integrations:{{ .Values.refit.version }}

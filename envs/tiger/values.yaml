@@ -15,11 +15,20 @@ minio:
       memory: 1Gi
     
 kafka: 
-  replicaCount: 3
+  volumePermissions:
+      enabled: true
+  podSecurityContext:
+      runAsUser: 0
+      fsGroup: 0
+  containerSecurityContext:
+      runAsUser: 0
+      runAsNonRoot: false
+  replicaCount: 6
   autoCreateTopicsEnable: true
   nodeSelector:
     refit: enabled
   persistence:
+    #existingClaim:"kafka-pvc-3"
     enabled: true
     storageClass: refit
     size: 100Gi
@@ -38,13 +47,14 @@ kafka:
 cassandra: 
   replicaCount: 6
   cluster:
-    seedCount: 6
+    seedCount: 3
   persistence:
     enabled: true
     storageClass: refit
     size: 100Gi
   nodeSelector: 
     refit: enabled
+  serviceAccountName: refit
   dbUser:
     user: cassandra
   resources:
@@ -77,8 +87,18 @@ grafana:
       memory: "10000Mi"
     requests:
       memory: "5000Mi"
-  nodeSelector:
-    refit: enabled
+  primary:
+    nodeSelector:
+      refit: enabled
+  #affinity:
+  #  nodeAffinity:
+  #    requiredDuringSchedulingIgnoredDuringExecution:
+  #      nodeSelectorTerms:
+  #      - matchExpressions:
+  #        - key: kubernetes.io/hostname
+  #          operator: In
+  #          values:
+  #          - wcdl2
   admin: 
     password: refit
     user: refit

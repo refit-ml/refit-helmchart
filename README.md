@@ -52,3 +52,15 @@ This will change in the future and all the codes will be in a static PV where no
 
 
 # kubernetes-scripts
+
+# refit-helmchart have 3 main directories
+- env: 
+   - tiger/values.yaml : values file used during helm install 
+- gluster: 
+   - cluster: 
+      - endpoints.yaml:  
+      - kustomisation.yaml 
+      - service.yaml 
+   - pv
+   - pv-dev
+- refit: 

@@ -4,7 +4,8 @@ metadata:
  name: gluster-claim
 spec:
  accessModes:
-  - ReadWriteMany
+  - ReadWriteOnce
  resources:
   requests:
    storage: 10Gi
+ storageClassName: refit

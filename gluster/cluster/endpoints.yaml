@@ -8,13 +8,3 @@ subsets:
     ports:
     - port: 1
       protocol: TCP
-  - addresses:
-    - ip: 10.14.38.66
-    ports:
-    - port: 1
-      protocol: TCP
-  - addresses:
-    - ip: 10.14.38.67
-    ports:
-    - port: 1
-      protocol: TCP
